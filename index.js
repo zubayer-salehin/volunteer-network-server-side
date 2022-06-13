@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require("cors")
 const app = express()
-const port = process.env.PORT || 5000
+const port = 5000
 require("dotenv").config()
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
@@ -23,7 +23,6 @@ async function run() {
         await client.connect();
         const eventCollection = client.db("volunteerNetwork").collection("event");
         const orderCollection = client.db("volunteerNetwork").collection("order");
-        const projectCollection = client.db("volunteerNetwork").collection("projects");
 
         app.get('/event', async (req, res) => {
             const query = {};
@@ -36,20 +35,6 @@ async function run() {
             const id = req.params.id
             const query = { _id: ObjectId(id) };
             const result = await eventCollection.findOne(query);
-            res.send(result)
-        })
-
-        app.get('/projects', async (req, res) => {
-            const query = {};
-            const cursor = projectCollection.find(query);
-            const result = await cursor.toArray();
-            res.send(result)
-        })
-
-        app.get('/projects/:id', async (req, res) => {
-            const id = req.params.id
-            const query = { _id: ObjectId(id) };
-            const result = await projectCollection.findOne(query);
             res.send(result)
         })
 
