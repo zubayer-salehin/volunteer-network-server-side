@@ -10,7 +10,7 @@
         {
             "src": "/event",
             "dest": "/index.js",
-            "methods": "GET"
+            "methods": ["GET"]
         }
     ]
 }
