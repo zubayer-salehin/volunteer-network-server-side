@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send('My Name is Zubayer')
+    res.send('Volunteer Network Server Side')
 })
 
 
