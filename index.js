@@ -72,9 +72,6 @@ async function run() {
             res.send(result);
         })
 
-        app.get('/zubayer', (req, res) => {
-            res.send('My name is zubayer')
-        })
     }
     finally {
         // await client.close();
