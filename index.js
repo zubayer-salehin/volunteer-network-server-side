@@ -71,6 +71,10 @@ async function run() {
             const result = await orderCollection.deleteOne(query);
             res.send(result);
         })
+
+        app.get('/zubayer', (req, res) => {
+            res.send('My name is zubayer')
+        })
     }
     finally {
         // await client.close();
